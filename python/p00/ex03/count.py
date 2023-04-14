@@ -17,7 +17,7 @@ def text_analyzer(text = None):
     punt = 0
     spac = 0
 
-    print(type(text))
+#   print(type(text))
     up = sum(1 for c in text if c.isupper())
     low = sum(1 for c in text if c.islower())
     punt = sum(1 for c in text if c in string.punctuation)
