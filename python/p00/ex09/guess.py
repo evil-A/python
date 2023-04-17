@@ -1,7 +1,6 @@
 import random
 
 x = random.randint(1, 99)
-print(x)
 
 print("This is an interactive guessing game!\n"
         "You have to enter a number between 1 and 99 to find out the secret number.\n"
@@ -24,11 +23,10 @@ while (y != x):
         else:
             if (x == 42):
                 print("The answer to the ultimate question of life, the universe and everything is 42.")
-                print("Congratulations", end="")
             if (z == 1):
-                print("! You got it on your first try!")
+                print("Congratulations! You got it on your first try!")
             else:
-                print(", you've got it!\nYou won in {} attemps!".format(z))
+                print("Congratulations, you've got it!\nYou won in {} attemps!".format(z))
     except:
         print("That's not a number.")
 

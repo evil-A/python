@@ -2,4 +2,4 @@ pip list
 pip show numpy
 conda remove numpy
 conda install numpy
-pip list --format=freeze > requirements.txt
+conda list --export > requirements.txt

@@ -47,24 +47,30 @@ def printRecipe():
 
 def addRecipe():
     global num
-    print("Enter a name:")
-    recipename = 'recipe' + str(num)
-    name = input()
-    cookbook[name] = {}
-    cookbook[name] = recipename
-    ingLst = []
-    ing = "empty"
-    print("Enter ingredients:")
-    while (ing != ''):
-        ing = ""
-        ing = input()
-        ingLst.append(ing)
-    cookbook[name] = {
-            "ingredients": ingLst,
-            "meal": input("Enter a meal type:\n"),
-            "prep_time": int(input("Enter a preparation time:\n"))
-    }
-    num += 1
+    try:
+        print("Enter a name:")
+        recipename = 'recipe' + str(num)
+        name = input()
+        cookbook[name] = {}
+        cookbook[name] = recipename
+        ingLst = []
+        ing = "empty"
+        print("Enter ingredients:")
+        while (ing != ''):
+            ing = ""
+            ing = input()
+            ingLst.append(ing)
+        ingLst.remove('')
+        cookbook[name] = {
+                "ingredients": ingLst,
+                "meal": input("Enter a meal type:\n"),
+                "prep_time": int(input("Enter a preparation time:\n"))
+                }
+        num += 1
+    except:
+        print("Not valid recipe")
+        cookbook.pop(name)
+        return
 
 def quit():
     global loop

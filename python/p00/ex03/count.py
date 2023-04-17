@@ -17,12 +17,11 @@ def text_analyzer(text = None):
     punt = 0
     spac = 0
 
-#   print(type(text))
     up = sum(1 for c in text if c.isupper())
     low = sum(1 for c in text if c.islower())
     punt = sum(1 for c in text if c in string.punctuation)
     spac = sum(1 for c in text if c in (' ', '\t', '\n', '\r', '\v', '\f'))
-
+    ch = len(text)
     print("The text contains ", ch, " character(s):")
     print("- ", up, " upper letter(s)")
     print("- ", low, " lower letter(s)")
@@ -38,24 +37,3 @@ if __name__ == '__main__':
             text_analyzer()
     else:
         print("More arguments than needed are provided")
-
-'''
-print(add_numbers(5, 10))
-print(add_numbers.__doc__)
-
-val = input("Enter your value: ")
-print(val)
-'''
-
-
-
-'''
- for element in text:
-        ch += 1
-        if ((element != " ") and not(isupper(element)) and not(islower(element))):
-            punt += 1
-        else:
-            up += isupper(element)
-            low += islower(element)
-            spac += element == " "
-'''

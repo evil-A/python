@@ -6,11 +6,11 @@ assert len(sys.argv) < 3, "More arguments than needed are provided"
 try:
     int(sys.argv[1])
     if (int(sys.argv[1]) == 0):
-        print("zero")
+        print("I'm zero")
     elif ((int(sys.argv[1]) % 2) == 0):
-        print("even")
+        print("I'm even")
     elif ((int(sys.argv[1]) % 2) != 0):
-        print("odd")
+        print("I'm odd")
 except ValueError:
     print("Not an integer")
 except IndexError:

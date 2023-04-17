@@ -41,7 +41,7 @@ morse = {
         ' ': '/'
         }
 
-assert len(sys.argv) > 1, "More arguments are needed"
+assert len(sys.argv) > 1, "Wrong number of arguments"
 
 aux1 = ''
 aux2 = ''
