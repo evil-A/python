@@ -1,4 +1,5 @@
 import time
+import copy
 from recipe import Recipe
 from datetime import date
 
@@ -6,7 +7,7 @@ class Book:
     name = "" #name of the book
     last_update = () #date of the las update
     creation_date = () #creation date datetime???
-    recipes_list = [] # dctionary 3 keys: "starter", "lunch", "dessert"
+    recipes_list = {} # dictionary 3 keys: "starter", "lunch", "dessert"
 
     def __init__(self, name: str):
         if not isinstance(name, str):
@@ -33,30 +34,32 @@ class Book:
 
 
     def get_recipe_by_name(self, name):
-        # bucle que recorra el dicionario por clave y bucle que recorra las listas
-        if name in self.recipes_list:
-            return(name)
-        return(name, " not in " + self.name)
+        for key in self.recipes_list:
+            for value in self.recipes_list[key]:
+                if value.name == name:
+                    return (value)
+        return(name + " not in " + self.name + '\n')
         """Prints a recipe with the name \texttt{name} and returns the instance"""
         #... Your code here ...
+
+    def get_recipes_by_types(self, recipe_type):
+        res = ''
+        for key in self.recipes_list:
+            if key == recipe_type:
+                for x in self.recipes_list[key]:
+                    res = res + x.name + '\n'
+                return res
+        return (0)
+        """Get all recipe names for a given recipe_type """
+        #... Your code here ...
+
 
     def add_recipe(self, recipe):
         if not isinstance(recipe, Recipe):
             print("ERROR: not a recipe")
             return None
-        self.recipes_list[recipe.recipe_type] = recipe
+        self.recipes_list[recipe.recipe_type].append(copy.deepcopy(recipe))
         self.last_update = date.today()
         """Add a recipe to the book and update last_update"""
         #... Your code here ...
-'''
-    def get_recipes_by_type(self, recipe_type):
-        rev_dict = {}
-        for key, recipe_type in self.recipes_list.recipe_type():
-            rev_dict.setdefault(value, set()).add(key)
-        result = [key for key, values in rev_dict.items()
-                              if len(values) > 1]
-        print("list of recipes", str(result))
-        """Get all recipe names for a given recipe_type """
-        #... Your code here ...
-'''
 
