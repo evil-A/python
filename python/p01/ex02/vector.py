@@ -1,11 +1,33 @@
-import numpy
-
 class Vector:
     def __init__(self, values):
-        self.values = values
-        self.shape = (1, 1)
+        if isinstance(values, list):
+            if len(values) > 1:
+                for elem in values:
+                    if isinstance(elem, list):
+                        for el in elem:
+                            if not isinstance(el, float):
+                                print("ERROR: bad input")
+                                exit (1)
+                    else:
+                        print("ERROR: bad input")
+                self.values = values
+                self.shape = (len(values), 1)
+            elif len(values) == 1:
+                if isinstance(values[0], list):
+                    for elem in values[0]:
+                        if not isinstance(elem, float):
+                            print("ERROR: bad input")
+                            exit (1)
+                    self.values = values
+                    self.shape = (1, len(values[0]))
+                else:
+                    print("ERROR: bad input")
+            print(self.values)###
+            print(self.shape)###
 
-    
+    def __str__(self):
+        return "Vector({})".format(str(self.values))
+
 
 """
 def dot():
